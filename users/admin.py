@@ -4,7 +4,7 @@ from users import models
 
 @admin.register(models.Patient)
 class PatientAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name',)
+    list_display = ('id', 'name', 'cpf', )
     ordering = ('id',)
 
 
