@@ -1,11 +1,17 @@
 from django.urls import path
-from .views import PatientList, PatientDetail, dentists_list, dentists_detail
+from rest_framework.routers import DefaultRouter
+
+from users import views
+
+router = DefaultRouter()
+router.register(r'patients', views.PatientViewSet)
+router.register(r'dentists', views.DentistViewSet)
 
 app_name = 'users'
 
 urlpatterns = [
-    path('patients/', PatientList.as_view()),
-    path('patients/<int:id>/', PatientDetail.as_view()),
-    path('dentists/', dentists_list),
-    path('dentists/<int:id>/', dentists_detail)
-]
+    # path('patients/', PatientList.as_view()),
+    # path('patients/<int:id>/', PatientDetail.as_view()),
+    # path('dentists/', dentists_list),
+    # path('dentists/<int:id>/', dentists_detail)
+] + router.urls
