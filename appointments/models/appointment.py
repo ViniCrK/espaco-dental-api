@@ -18,7 +18,7 @@ class Appointment(models.Model):
         Patient, on_delete=models.CASCADE, verbose_name='Paciente')
     dentist = models.ForeignKey(
         Dentist, on_delete=models.CASCADE, verbose_name='Dentista')
-    date = models.DateField(verbose_name='Marcada para')
+    date = models.DateField(verbose_name='Agendada para')
     appointment_occasion = models.TextField(verbose_name='Motivo da Consulta')
     diagnosis = models.TextField(
         blank=True, null=True, verbose_name='Diagnóstico')
@@ -27,7 +27,7 @@ class Appointment(models.Model):
     status = models.CharField(
         max_length=20, choices=STATUS_CHOICES, verbose_name='Status')
     created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name='Criado em')
+        auto_now_add=True, verbose_name='Marcado em')
 
     def __str__(self) -> str:
         return f"Consulta de {self.patient} com {self.dentist} em {self.date}"
