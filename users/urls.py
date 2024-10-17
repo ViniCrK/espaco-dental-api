@@ -5,13 +5,13 @@ from users import views
 
 router = DefaultRouter()
 router.register(r'patients', views.PatientViewSet)
-router.register(r'dentists', views.DentistViewSet)
+# router.register(r'dentists', views.DentistViewSet)
 
 app_name = 'users'
 
 urlpatterns = [
     # path('patients/', PatientList.as_view()),
     # path('patients/<int:id>/', PatientDetail.as_view()),
-    # path('dentists/', dentists_list),
-    # path('dentists/<int:id>/', dentists_detail)
+    path('dentists/', views.dentists_list),
+    path('dentists/<int:id>/', views.dentists_detail)
 ] + router.urls
